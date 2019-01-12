@@ -42,31 +42,30 @@ string TicTacToe:: showTable(){
 
 char TicTacToe:: getWinner(){
 
-
+    // removed static_cast<char>
     for(int i = 0; i <= 2; i++){
         if(pField.at(i).at(0) != ' ' && pField.at(i).at(0) == pField.at(i).at(1)
            && pField.at(i).at(0) == pField.at(i).at(2))
         {
-           return  static_cast<char> (pField.at(i).at(0) );
+           return  (pField.at(i).at(0) );
         }
     }
     for(int i = 0; i <= 2; i++){
         if(pField.at(0).at(i) != ' ' && pField.at(0).at(i) == pField.at(1).at(i)
            && pField.at(0).at(i) == pField.at(2).at(i) )
         {
-            return static_cast <char> (pField.at(i).at(0) );
+            return (pField.at(i).at(0) );
         }
     }
     if(pField.at(1).at(1) != ' '){
         if(pField.at(0).at(0) == pField.at(1).at(1) && pField.at(0).at(0) == pField.at(2).at(2)){
-           return static_cast <char> (pField.at(0).at(0) );
+           return (pField.at(0).at(0) );
         }
         if(pField.at(0).at(2) == pField.at(1).at(1) && pField.at(0).at(2) == pField.at(2).at(0)){
-           return static_cast <char> (pField.at(0).at(2) );
+           return (pField.at(0).at(2) );
         }
 
     }
     return 0;
 }
-
 
