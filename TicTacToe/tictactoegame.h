@@ -16,6 +16,8 @@ public:
     string winner();
     string getCurrentPlayer();
     string showTable();
+    int counter1 = 0;
+    int counter2= 0;
 };
 
 #endif // TICTACTOEGAME_H

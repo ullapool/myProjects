@@ -14,14 +14,7 @@ void TicTacToe::resetField(){
             pField.at(i).at(j) = reset;
         }
     }
-    cout<<"after reset"<<endl;
-    for(const auto row : pField){
-        cout<<" | ";
-        for(const auto item : row){
-            cout<<item<<" | ";
-        }
-        cout<<endl;
-    }
+
 
 }
 
@@ -54,7 +47,7 @@ char TicTacToe:: getWinner(){
         if(pField.at(0).at(i) != ' ' && pField.at(0).at(i) == pField.at(1).at(i)
            && pField.at(0).at(i) == pField.at(2).at(i) )
         {
-            return (pField.at(i).at(0) );
+            return (pField.at(0).at(i) );
         }
     }
     if(pField.at(1).at(1) != ' '){
@@ -66,6 +59,6 @@ char TicTacToe:: getWinner(){
         }
 
     }
-    return 0;
+    return ' ';
 }
 

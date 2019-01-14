@@ -19,29 +19,55 @@ string TicTacToeGame::showTable(){
 }
 
 bool TicTacToeGame :: isfinished(){
+
     char winner = getWinner();
-    if(winner == ' '){
-        return false;
-    }
-    if(winner == 'x'){
-        this->winner();
-        return true;
-    }
-    if(winner == 'o'){
-        this->winner();
+    if(winner != ' '){
         return true;
     }
 
-  return false;
+    for(const auto &row : pField){
+        for(const auto &Value : row){
+            if (Value == ' '){
+                return false;
+            }
+        }
+    }
+    return true;
+//    if(winner == ' ') {
+//        return false;
+//    }
+//    if(winner == 'x'){
+//        counter1++;
+//        this->winner();
+//        return true;
+//    }
+//    if(winner == 'o'){
+//        counter2++;
+//        this->winner();
+//        return true;
+//    }
+
+//  return false;
 }
 
 string TicTacToeGame :: winner(){
-    if(currentPlayer != 'x'){
-        return player_1;
+    if(isfinished()){
+        char winner = getWinner();
+        if(winner == ' '){
+            return " ";
+        }
+    else if(getWinner() == 'x'){
+            counter1++;
+            return player_1;
     }
+
     else{
-        return player_2;
+            counter2++;
+            return player_2;
+
     }
+  }
+    return "";
 }
 
 void TicTacToeGame::play(int row, int col){
