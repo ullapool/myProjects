@@ -11,7 +11,7 @@
 
 class GameArea : public QWidget
 {
-
+    Q_OBJECT
 
 public:
     GameArea(QWidget *parent = 0);

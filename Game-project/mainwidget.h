@@ -11,27 +11,29 @@ class GameArea;
 
 class MainWidget : public QWidget
 {
-
+   Q_OBJECT
 
 public:
     MainWidget(QWidget *parent = 0);
     ~MainWidget();
-    void createLayout();
-    void createObjects();
-
 
 private:
     QSlider *angelSlider;
+    QLineEdit *numberOfShootInput;
     QSlider * speedSlider;
     QPushButton *actionButton;
     QLineEdit *speedInput;
     QLineEdit *angelInput;
     GameArea *gamearea;
 
+    void createLayout();
+    void createObjects();
+    void connectObjects();
+
 public slots:
     void speedSliderMoved(int value);
-    void angleSliderMoved(int value);
-    void actionButtonClicked();
+    //void angleSliderMoved(int value);
+    //void actionButtonClicked();
     //void onGameFinished();
 
 

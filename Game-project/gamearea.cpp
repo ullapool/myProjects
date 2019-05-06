@@ -8,8 +8,8 @@
 GameArea::GameArea(QWidget *parent)
 {
     qDebug() << " ga-const. called"<<endl;
-    QImage image("C:\\SynologyDrive\\GUI\\the_game\\images\\");
-    background = new QImage(image);
+    QImage image("C:\\SynologyDrive\\GUI\\the_game\\images\\background.jpg");
+    background = new QImage(image.scaledToWidth(1000));
 
 
 

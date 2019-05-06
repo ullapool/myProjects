@@ -7,6 +7,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     MainWidget *mw = new MainWidget();
     setCentralWidget(mw);
+    setFixedSize(900,450);
 
 
 }
