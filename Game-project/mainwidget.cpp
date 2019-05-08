@@ -11,6 +11,7 @@ MainWidget::MainWidget(QWidget *parent) : QWidget (parent)
 {
     this->createObjects();
     this->createLayout();
+    this->connectObjects();
 
 }
 
@@ -25,7 +26,9 @@ void MainWidget::createObjects()
     angelSlider->setTickInterval(1);
     numberOfShootInput = new QLineEdit();
     speedInput = new QLineEdit();
-    angelInput = new QLineEdit();
+    speedInput->setReadOnly(true);
+    angleInput = new QLineEdit();
+    angleInput->setReadOnly(true);
     gamearea = new GameArea(this);
 }
 
@@ -33,7 +36,7 @@ void MainWidget::createLayout()
 {
 
    QVBoxLayout *vBox = new QVBoxLayout();
-   QLabel *title = new QLabel("<h1>Monkeytastic</h1>");
+   QLabel *title = new QLabel("<h1>Take nae monkey shite</h1>");
    vBox->addWidget(title);
 
    QHBoxLayout *hBox = new QHBoxLayout();
@@ -51,24 +54,33 @@ void MainWidget::createLayout()
    hBox->addWidget(speedInput);
    hBox->addWidget(angle);
    hBox->addWidget(angelSlider);
-   hBox->addWidget(angelInput);
+   hBox->addWidget(angleInput);
    vBox->addLayout(hBox);
 
    this->setLayout(vBox);
+
 
 }
 
 void MainWidget::connectObjects()
 {
     connect(speedSlider, SIGNAL(valueChanged(int)), this, SLOT(speedSliderMoved(int)) );
+    connect(angelSlider, SIGNAL(valueChanged(int)), this, SLOT(angleSliderMoved(int)) );
 }
+
 
 void MainWidget::speedSliderMoved(int value)
 {
    qDebug() <<"speedSliderMoved"<<endl;
-   QString valueStr = (QString)value;
-   this->speedInput = new QLineEdit(valueStr);
+   QString valueStr = QString::number(value); //casting int into string
+   this->speedInput->setText(valueStr);
 
+}
+
+void MainWidget::angleSliderMoved(int value)
+{
+    QString valueStr = QString::number(value);
+    this->angleInput->setText(valueStr);
 }
 
 MainWidget::~MainWidget()

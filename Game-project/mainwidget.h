@@ -23,7 +23,7 @@ private:
     QSlider * speedSlider;
     QPushButton *actionButton;
     QLineEdit *speedInput;
-    QLineEdit *angelInput;
+    QLineEdit *angleInput;
     GameArea *gamearea;
 
     void createLayout();
@@ -32,7 +32,7 @@ private:
 
 public slots:
     void speedSliderMoved(int value);
-    //void angleSliderMoved(int value);
+    void angleSliderMoved(int value);
     //void actionButtonClicked();
     //void onGameFinished();
 
