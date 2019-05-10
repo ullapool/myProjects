@@ -1,5 +1,6 @@
 #ifndef GAMEAREA_H
 #define GAMEAREA_H
+#include "gameobject.h"
 #include <QImage>
 #include <QPaintEvent>
 #include <QVector>
@@ -23,9 +24,10 @@ public:
 
 protected:
     void gameFinished();
+
 private:
 
-
+    QVector<GameObject* > gameObject;
     QImage *background;
 
 };

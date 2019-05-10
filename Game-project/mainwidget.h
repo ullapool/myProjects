@@ -16,6 +16,7 @@ class MainWidget : public QWidget
 public:
     MainWidget(QWidget *parent = 0);
     ~MainWidget();
+    int shootCounter = 0;
 
 private:
     QSlider *angelSlider;
@@ -33,7 +34,7 @@ private:
 public slots:
     void speedSliderMoved(int value);
     void angleSliderMoved(int value);
-    //void actionButtonClicked();
+    void actionButtonClicked();
     //void onGameFinished();
 
 

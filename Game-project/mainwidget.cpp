@@ -13,6 +13,7 @@ MainWidget::MainWidget(QWidget *parent) : QWidget (parent)
     this->createLayout();
     this->connectObjects();
 
+
 }
 
 void MainWidget::createObjects()
@@ -66,12 +67,13 @@ void MainWidget::connectObjects()
 {
     connect(speedSlider, SIGNAL(valueChanged(int)), this, SLOT(speedSliderMoved(int)) );
     connect(angelSlider, SIGNAL(valueChanged(int)), this, SLOT(angleSliderMoved(int)) );
-}
+    connect(actionButton, SIGNAL(clicked()), this, SLOT(actionButtonClicked()));
 
+}
 
 void MainWidget::speedSliderMoved(int value)
 {
-   qDebug() <<"speedSliderMoved"<<endl;
+
    QString valueStr = QString::number(value); //casting int into string
    this->speedInput->setText(valueStr);
 
@@ -81,6 +83,19 @@ void MainWidget::angleSliderMoved(int value)
 {
     QString valueStr = QString::number(value);
     this->angleInput->setText(valueStr);
+}
+
+void MainWidget::actionButtonClicked()
+{
+    if(shootCounter == 0){
+    this->actionButton->setText("Shoot");
+    this->numberOfShootInput->setText("0");
+    }
+    else{
+    this->numberOfShootInput->setText(QString::number(shootCounter));
+
+    }
+    shootCounter++;
 }
 
 MainWidget::~MainWidget()

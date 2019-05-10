@@ -27,15 +27,23 @@ CONFIG += c++11
 SOURCES += \
         constants.cpp \
         gamearea.cpp \
+        gameobject.cpp \
         main.cpp \
         mainwidget.cpp \
-        mainwindow.cpp
+        mainwindow.cpp \
+        obstacle.cpp \
+        player.cpp \
+        shoot.cpp
 
 HEADERS += \
         constants.h \
         gamearea.h \
+        gameobject.h \
         mainwidget.h \
-        mainwindow.h
+        mainwindow.h \
+        obstacle.h \
+        player.h \
+        shoot.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
