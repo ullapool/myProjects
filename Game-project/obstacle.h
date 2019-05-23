@@ -5,7 +5,6 @@
 
 class Obstacle : public GameObject
 {
-    Q_OBJECT
 
 public:
     Obstacle(int x, int y);

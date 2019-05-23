@@ -1,5 +1,6 @@
 #include "mainwidget.h"
 #include "gamearea.h"
+#include "player.h"
 #include <QHBoxLayout>
 #include <QVBoxLayout>
 #include <QLabel>
@@ -67,8 +68,7 @@ void MainWidget::connectObjects()
 {
     connect(speedSlider, SIGNAL(valueChanged(int)), this, SLOT(speedSliderMoved(int)) );
     connect(angelSlider, SIGNAL(valueChanged(int)), this, SLOT(angleSliderMoved(int)) );
-    connect(actionButton, SIGNAL(clicked()), this, SLOT(actionButtonClicked()));
-
+    connect(actionButton, SIGNAL(clicked()), this, SLOT(actionButtonClicked() ));
 }
 
 void MainWidget::speedSliderMoved(int value)
@@ -83,19 +83,25 @@ void MainWidget::angleSliderMoved(int value)
 {
     QString valueStr = QString::number(value);
     this->angleInput->setText(valueStr);
+
 }
+
+
 
 void MainWidget::actionButtonClicked()
 {
-    if(shootCounter == 0){
+    if(this->actionButton->text() == "Start"){
     this->actionButton->setText("Shoot");
+    this->gamearea->startGame();
     this->numberOfShootInput->setText("0");
     }
     else{
     this->numberOfShootInput->setText(QString::number(shootCounter));
-
-    }
     shootCounter++;
+    this->gamearea->shoot(20, 350);
+    }
+
+
 }
 
 MainWidget::~MainWidget()

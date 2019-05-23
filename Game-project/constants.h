@@ -7,6 +7,11 @@ class Constants
 {
 public:
     static QString imageFolder;
+    static QString bg;
+    static QString obstacleImg;
+    static int width;
+    static QString playerImg;
+    static QString shootImg;
 
 };
 

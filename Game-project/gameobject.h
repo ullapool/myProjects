@@ -2,31 +2,32 @@
 #define GAMEOBJECT_H
 #include <QString>
 #include <QPainter>
-
+#include <QImage>
 #include <QWidget>
 
 
-class GameObject : public QWidget
+class GameObject //: public QWidget
 {
-    Q_OBJECT
 
 public:
+    GameObject();
     GameObject(int x, int y, QString imgPath, int width);
-    virtual void move();
-    void paint(QPainter *painter);
-    int getY();
-    void setY(int value);
-    int getX();
-    void setX(int value);
-    int width();
-    int height();
+    virtual void move() = 0;
+    virtual void paint(QPainter *painter);
+    virtual int getY();
+    virtual void setY(int value);
+    virtual int getX();
+    virtual void setX(int value);
+    virtual int width();
+    virtual int height();
 
 protected:
+    QImage *img;
     int x;
     int y;
 
 private:
-    QImage *img;
+
 
 };
 

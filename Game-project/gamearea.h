@@ -1,6 +1,9 @@
 #ifndef GAMEAREA_H
 #define GAMEAREA_H
 #include "gameobject.h"
+#include "player.h"
+#include "shoot.h"
+#include "obstacle.h"
 #include <QImage>
 #include <QPaintEvent>
 #include <QVector>
@@ -20,15 +23,18 @@ public:
     ~GameArea();
     void startGame();
     void shoot(int speed, int angle);
+    //QVector<Player*> getPlayer() const;
+public slots:
     void next();
 
 protected:
     void gameFinished();
 
 private:
-
-    QVector<GameObject* > gameObject;
+    //QVector<Player *> player;
+    QVector<GameObject*> gameObject;
     QImage *background;
+
 
 };
 

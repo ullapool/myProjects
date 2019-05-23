@@ -5,7 +5,7 @@
 
 class Player : public GameObject
 {
-    Q_OBJECT
+
 public:
     Player(int x, int y);
     virtual void move();

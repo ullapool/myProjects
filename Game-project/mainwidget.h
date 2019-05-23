@@ -3,11 +3,9 @@
 #include <QSlider>
 #include <QPushButton>
 #include <QLineEdit>
-
-
 #include <QWidget>
-class GameArea;
 
+class GameArea;
 
 class MainWidget : public QWidget
 {

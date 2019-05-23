@@ -33,7 +33,8 @@ SOURCES += \
         mainwindow.cpp \
         obstacle.cpp \
         player.cpp \
-        shoot.cpp
+        shoot.cpp \
+        thread.cpp
 
 HEADERS += \
         constants.h \
@@ -43,7 +44,8 @@ HEADERS += \
         mainwindow.h \
         obstacle.h \
         player.h \
-        shoot.h
+        shoot.h \
+        thread.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

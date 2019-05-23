@@ -5,7 +5,6 @@
 
 class Shoot : public GameObject
 {
-    Q_OBJECT
 
 public:
     Shoot(int x, int y, int speed, int angle);
