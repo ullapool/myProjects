@@ -25,6 +25,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+        collisiondetection.cpp \
         constants.cpp \
         gamearea.cpp \
         gameobject.cpp \
@@ -37,6 +38,7 @@ SOURCES += \
         thread.cpp
 
 HEADERS += \
+        collisiondetection.h \
         constants.h \
         gamearea.h \
         gameobject.h \
