@@ -4,6 +4,8 @@
 #include <QPushButton>
 #include <QLineEdit>
 #include <QWidget>
+#include <QMessageBox>
+#include <QApplication>
 
 class GameArea;
 
@@ -24,6 +26,7 @@ private:
     QLineEdit *speedInput;
     QLineEdit *angleInput;
     GameArea *gamearea;
+    QMessageBox::StandardButton messageBox;
 
     void createLayout();
     void createObjects();
@@ -33,7 +36,7 @@ public slots:
     void speedSliderMoved(int value);
     void angleSliderMoved(int value);
     void actionButtonClicked();
-    //void onGameFinished();
+    void onGameFinished();
 
 
 };

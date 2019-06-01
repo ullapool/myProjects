@@ -4,6 +4,7 @@
 #include "player.h"
 #include "shoot.h"
 #include "obstacle.h"
+#include "collisiondetection.h"
 #include <QImage>
 #include <QPaintEvent>
 #include <QVector>
@@ -23,15 +24,19 @@ public:
     ~GameArea();
     void startGame();
     void shoot(int speed, int angle);
-    //QVector<Player*> getPlayer() const;
+    void removeShot();
+
 public slots:
     void next();
 
-protected:
+signals:
     void gameFinished();
+     void shotStatusChanged(bool active);
 
 private:
-    //QVector<Player *> player;
+    Shoot *activeShot;
+    CollisionDetection *collisiondetection;
+    bool collision;
     QVector<GameObject*> gameObject;
     QImage *background;
 

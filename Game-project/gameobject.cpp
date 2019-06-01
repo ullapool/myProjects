@@ -32,11 +32,12 @@ int GameObject::height()
 GameObject::GameObject() {}
 GameObject::GameObject(int x, int y, QString imgPath, int width)
 {
-   this->x = x;
-   this->y = y;
+
    QImage getImg(imgPath);
    this->img = new QImage(getImg.scaledToWidth(width));
-   //*this->img = this->img->scaledToWidth(width);
+
+   this->setX(x);
+   this->setY(y);
 }
 
 void GameObject::paint(QPainter *painter)

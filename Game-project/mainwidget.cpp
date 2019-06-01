@@ -1,12 +1,15 @@
 #include "mainwidget.h"
 #include "gamearea.h"
 #include "player.h"
+#include "obstacle.h"
 #include <QHBoxLayout>
 #include <QVBoxLayout>
 #include <QLabel>
 #include <QSlider>
 #include <QString>
 #include <QDebug>
+#include <QMessageBox>
+#include <QApplication>
 
 MainWidget::MainWidget(QWidget *parent) : QWidget (parent)
 {
@@ -69,20 +72,21 @@ void MainWidget::connectObjects()
     connect(speedSlider, SIGNAL(valueChanged(int)), this, SLOT(speedSliderMoved(int)) );
     connect(angelSlider, SIGNAL(valueChanged(int)), this, SLOT(angleSliderMoved(int)) );
     connect(actionButton, SIGNAL(clicked()), this, SLOT(actionButtonClicked() ));
+    QObject::connect(gamearea, SIGNAL(gameFinished()),this, SLOT(onGameFinished() ) );
+    //connect(this->gamearea, &GameArea::shotStatusChanged, this->actionButton, &QPushButton::setDisabled );
 }
 
 void MainWidget::speedSliderMoved(int value)
 {
+   this->speedInput->setText(QString::number(value));
 
-   QString valueStr = QString::number(value); //casting int into string
-   this->speedInput->setText(valueStr);
+
 
 }
 
 void MainWidget::angleSliderMoved(int value)
 {
-    QString valueStr = QString::number(value);
-    this->angleInput->setText(valueStr);
+    this->angleInput->setText(QString::number(value));
 
 }
 
@@ -96,12 +100,27 @@ void MainWidget::actionButtonClicked()
     this->numberOfShootInput->setText("0");
     }
     else{
-    this->numberOfShootInput->setText(QString::number(shootCounter));
+    this->numberOfShootInput->setText(QString::number(shootCounter + 1));
     shootCounter++;
-    this->gamearea->shoot(20, 350);
+    this->gamearea->shoot(speedSlider->value(), angelSlider->value());
     }
 
 
+}
+
+void MainWidget::onGameFinished()
+{
+    qDebug() <<"onGameFinished called" <<endl;
+    QString score = numberOfShootInput->text();
+    const QString finalScore = "It took you " + score + "!";
+    messageBox = QMessageBox::question(this, finalScore, "Wanna play again?", QMessageBox::Yes | QMessageBox::No);
+
+    if(messageBox == QMessageBox::Yes) {
+
+    gamearea->startGame();
+     actionButton->setText("Start");
+
+    }
 }
 
 MainWidget::~MainWidget()
