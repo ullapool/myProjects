@@ -2,6 +2,7 @@
 #include <vector>
 #include <queue> // BFS
 #include <stack> // DFS
+#include <set>
 
 using namespace std;
 
@@ -10,8 +11,11 @@ using namespace std;
 
 int compare(const vector<vector<int>> &graph, int start, int end) {
     queue<int> q;
+
+
     q.push(start);
-    int counter = 0;
+    int counterQueue = 0;
+    int counterStack = 0;
     while(!q.empty()) {
         int node = q.front();
         //cout <<node << ": ";
@@ -20,10 +24,46 @@ int compare(const vector<vector<int>> &graph, int start, int end) {
         for(int edge : graph[node]) {
             q.push(edge);
         }
-        counter++;
-     //cout << "node: "<< node <<" counter: " << counter << endl;
+        counterQueue++;
+     cout << "nodeQ: "<< node <<" counter: " << counterQueue << endl;
     }
-    return counter;
+
+    stack<int> s;
+    set<int> grassedNodes;
+    s.push(start);
+    while(!s.empty()) {
+       int node = s.top();
+
+       if(node == end) {break;}
+       s.pop();
+       grassedNodes.insert(node);
+       for(int i = graph[node].size() -1; i >= 0; i-- ) {
+           if(grassedNodes.find(graph[node][i]) == grassedNodes.end()) {
+              s.push(graph[node][i]);
+           }
+
+       }
+       /*for(int edge : graph[node]) {
+           s.push(edge);
+       }*/
+       counterStack++;
+       cout << "nodeS: "<< node <<" counter: " << counterStack << endl;
+    }
+
+    cout << "BFS: " <<counterQueue << endl;
+    cout << "DFS: " <<counterStack << endl;
+
+    if(counterQueue < counterStack) {
+        return 1;
+    }
+    else if (counterQueue > counterStack){
+        return 2;
+
+    }
+    else {
+        return 3;
+    }
+
 }
 
 int main()
