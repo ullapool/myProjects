@@ -1,26 +1,22 @@
 #include <iostream>
 #include <vector>
-#include <queue> // BFS
-#include <stack> // DFS
+#include <queue> // BFS: BFS kann mit zirkulären Graphen umgehen.
+#include <stack> // DFS: DFS hingegen nicht, darum muss einen die besuchten nodes geflagged werden
 #include <set>
 
 using namespace std;
 
-
-
-
 int compare(const vector<vector<int>> &graph, int start, int end) {
     queue<int> q;
-
-
     q.push(start);
     int counterQueue = 0;
     int counterStack = 0;
+
     while(!q.empty()) {
         int node = q.front();
         //cout <<node << ": ";
         if(node == end) {break;}
-        q.pop();
+            q.pop();
         for(int edge : graph[node]) {
             q.push(edge);
         }
@@ -33,19 +29,15 @@ int compare(const vector<vector<int>> &graph, int start, int end) {
     s.push(start);
     while(!s.empty()) {
        int node = s.top();
-
        if(node == end) {break;}
-       s.pop();
+          s.pop();
        grassedNodes.insert(node);
        for(int i = graph[node].size() -1; i >= 0; i-- ) {
            if(grassedNodes.find(graph[node][i]) == grassedNodes.end()) {
               s.push(graph[node][i]);
            }
-
        }
-       /*for(int edge : graph[node]) {
-           s.push(edge);
-       }*/
+
        counterStack++;
        cout << "nodeS: "<< node <<" counter: " << counterStack << endl;
     }
