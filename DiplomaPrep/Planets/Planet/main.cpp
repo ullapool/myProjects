@@ -5,13 +5,13 @@
 
 using namespace std;
 
-class Planet
-{
+class Planet {
+
 private:
     string name;
     int x, y, z;
+
 public:
-    void show();
     int getX();
     int getY();
     int getZ();
@@ -31,11 +31,8 @@ void Planet::set(string planetName, int x, int y, int z) {
     this->z = z;
 }
 
-void Planet::show() {
-   cout << name << endl;
-   cout << " x: " << x << " y: " << y << " z: " << z << endl;
-}
 class PlanetUtil : public Planet{
+
 public:
     static string findNextPlanet(Planet planet, list<Planet> planets);
 };
