@@ -8,73 +8,83 @@
 
 using namespace std;
 
-int similaritySearch(string text, string pattern, int maxNumberOfMismatches, int startPosition) {
-   map<char, int> lookUpTable;
+int similaritySearch(string t, string p, int maxNumberOfMismatches, int startPosition) {
 
-   //for(int i = 0; i < pattern.size(); i++) {
-   for(int i = pattern.size() -1; i >= 0; i--){
-       lookUpTable[pattern[i]] = pattern.size() -1 -i;
-   }
+    // create lookup table
+    map<char, long> lookuptable;
+    // fill up table
 
-//   for(auto &it : lookUpTable){
-//       cout<<it.first<< " : "<<it.second<<endl;
-//   }
-   int startIndex = startPosition;
-   int pIndex = pattern.size() -1;
-   while(startIndex <=text.size() - pattern.size() ) {
-       int tIndex = startIndex + pIndex;
-       cout<<"tIndex: "<<tIndex<<endl;
-       char pCh = pattern.at(pIndex);
+    for (int i = 0; i < p.size() - 1; i++) {
+        lookuptable[p.at(i)] = p.size() - 1 - i;
+    }
+  //  for(auto &it : lookuptable) {
+  //      cout<<it.first<<" : "<<it.second<<endl;
+  //  }
 
-       cout <<"pch " <<pCh<<endl;
-       char tCh = text.at(tIndex);
+    int startIndex = startPosition;
+    int pIndex = p.size() - 1;
+    while (startIndex <= t.size() - p.size()) {
+      // compare from right
+      int tIndex = startIndex + pIndex;
+      char pCh = p.at(pIndex);
+      char tCh = t.at(tIndex);
+      if (pCh != tCh) {
+        int shift;
+        // if not in table -> shift pattern.size()
+        if (lookuptable.find(tCh) != lookuptable.end()) {
+          shift = lookuptable[tCh];
+        } else { // Falls Buchstabe aus Text nicht im Pattern vorkommt
+          shift = p.size();
+        }
+        pIndex = p.size() - 1;
+        startIndex += shift;
+      }
+      else {
+          if (pIndex == 0) {
+              // Falls alle Stellen des Patterns übereinstimmten
+              return startIndex;
+          }
+        pIndex--;
+      }
+    }
+    return -1;
+  }
 
-       cout <<"tch " <<tCh<<endl;
-       //1. check if the letters match. If no match continue at 4.
-       if(pCh != tCh ) {
-           int shift;
-           cout <<" first if"<<endl;
-           //1.1 check if other chars are matching
-           if(lookUpTable.find(tCh) != lookUpTable.end()) {
-               //1.2 if so then shift the whole pattern by the index-value where the match was found.
-               shift = lookUpTable[tCh];
-               cout<<"shift after lookup : " <<shift<<endl;
-           }
 
-               else {
-                      shift = pattern.size();
-                      cout <<"shift after else: "<<shift<<endl;
-                    }
+int similarity(string text, string pattern, int maxNumberOfMismatches, int startPosition) {
 
-                   // 1.4 adjust start, indexes etc.
-                    pIndex = pattern.size() -1;
-                    startIndex += shift;
-                    cout<<"startIndex: "<<startIndex<<endl;
+    for(int i = startPosition; i < text.length() - pattern.length(); i++) {
+        int mismatchCounter = maxNumberOfMismatches;
+        for(int j = 0; j < pattern.length(); j++) {
+            if(mismatchCounter < 0) {
+                break;
+            }
+            if(text[i + j] != pattern[j]) {
+                mismatchCounter--;
 
-           //1.3 if none matches are found the move the whole pattern by its size
-       }
-       else {
-           if(pIndex == 0) {
-               return startIndex;
-           }
-           //4. no match found, check the one on the left and... so own
-           pIndex--;
-       }
-   }
- return -1;
+            }
+           if(j == pattern.length()- 1 && mismatchCounter >= 0){
+                return i;
+            }
+        }
 
+    }
+    return -1;
 }
 
 
 int main()
 {
-    string text = "GDFGHJFFGJJGHJTREYWERWETYDSGF";
-    string pattern = "HJF";
+    string text = "GDFGHJFFGJ";
+    string pattern = "FGH";
     int maxMismacht = 1;
     int startPos = 0;
     int result;
 
     result = similaritySearch(text, pattern, maxMismacht, startPos);
     cout<<"Your match starts at: " << result << endl;
+
+    int result2 = similarity(text, pattern, maxMismacht, startPos);
+    cout<<"Your match starts at: " << result2 << endl;
     return 0;
 }
