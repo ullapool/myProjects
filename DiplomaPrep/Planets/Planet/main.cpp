@@ -74,7 +74,7 @@ int main()
 
     closestPlanet = PlanetUtil::findNextPlanet(A, planetStore);
 
-    cout << " The Closest Planet to " <<A.getName()<< " is " << closestPlanet << endl;
+    cout << "The closest Planet to " <<"**"<<A.getName()<<"**"<<" is -> " <<"*"<<closestPlanet<<"*"<< endl;
 
     return 0;
 }

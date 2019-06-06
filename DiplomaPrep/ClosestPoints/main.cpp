@@ -48,7 +48,7 @@ int main()
 
     vector<Point> result = findPoints(points, A, B, C, D );
     for(int i = 0; i < result.size(); i++) {
-         cout <<"x: " << result.at(i).x << " y: " <<result.at(i).y <<endl;
+         cout <<"x at Vector Pos " << i << ": " << result.at(i).x << " y at Vector Pos " << i << ": " <<result.at(i).y <<endl;
 
     }
 

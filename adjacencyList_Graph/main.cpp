@@ -58,6 +58,10 @@ int compare(const vector<vector<int>> &graph, int start, int end) {
 
 }
 
+int compareRecursiv(const vector<vector<int>> &graph, int start, int end) {
+
+}
+
 int main()
 {
     vector<vector<int>> graph({
