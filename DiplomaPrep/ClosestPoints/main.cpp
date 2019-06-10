@@ -27,7 +27,7 @@ vector<Point> findPoints(vector<Point> points, Point A, Point B, Point C, Point 
             if(distance <= min) {
                min = distance;
                position = j;
-                cout <<"pos: "<<position<<endl;
+               cout <<"pos: "<<position<<endl;
             }
 
             cout <<"distance: "<<distance<< endl;
@@ -48,7 +48,7 @@ int main()
 
     vector<Point> result = findPoints(points, A, B, C, D );
     for(int i = 0; i < result.size(); i++) {
-         cout <<"x at Vector Pos " << i << ": " << result.at(i).x << " y at Vector Pos " << i << ": " <<result.at(i).y <<endl;
+         cout <<"x at VectorPosition " << i << ": " << result.at(i).x << " y at VectorPosition " << i << ": " <<result.at(i).y <<endl;
 
     }
 
