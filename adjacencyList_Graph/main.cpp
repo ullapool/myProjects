@@ -14,14 +14,12 @@ int compare(const vector<vector<int>> &graph, int start, int end) {
 
     while(!q.empty()) {
         int node = q.front();
-        //cout <<node << ": ";
         if(node == end) {break;}
             q.pop();
         for(int edge : graph[node]) {
             q.push(edge);
         }
         counterQueue++;
-     cout << "nodeQ: "<< node <<" counter: " << counterQueue << endl;
     }
 
     stack<int> s;
@@ -33,7 +31,7 @@ int compare(const vector<vector<int>> &graph, int start, int end) {
           s.pop();
        grassedNodes.insert(node);
        for(int i = graph[node].size() -1; i >= 0; i-- ) {
-           if(grassedNodes.find(graph[node][i]) == grassedNodes.end()) {
+           if(grassedNodes.find(graph[node][i]) == grassedNodes.end()) { //find gives back iterator if not found == end = false
               s.push(graph[node][i]);
            }
        }
@@ -55,10 +53,6 @@ int compare(const vector<vector<int>> &graph, int start, int end) {
     else {
         return 3;
     }
-
-}
-
-int compareRecursiv(const vector<vector<int>> &graph, int start, int end) {
 
 }
 
