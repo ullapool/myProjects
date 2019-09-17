@@ -4,7 +4,7 @@
 #include <QLineEdit>
 #include <QObject>
 #include <QWidget>
-#include <qString>
+#include <QString>
 
 class MainWidget : public QWidget
 {
