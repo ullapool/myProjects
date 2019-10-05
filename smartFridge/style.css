@@ -1,0 +1,64 @@
+#secondPage.body {
+    background-color: lightslategrey;
+}
+h1 {
+    text-align: center;
+
+}
+
+img {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+
+}
+div {
+    text-align: center;
+}
+input{
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.btnAdd {
+    position: absolute;
+    height: 30%;
+    width: 30%;
+    float: left;
+    left: 50px;
+    bottom: 50px;
+    display: block;
+    border-radius: 100%;
+    border:1px chartreuse;
+    background-color: chartreuse;
+    font-size: inherit;
+}
+
+.btnRemove {
+    position: absolute;
+    height: 30%;
+    width: 30%;
+    float: right;
+    right: 50px;
+    bottom: 50px;
+    display: block;
+    border-radius: 50%;
+    background-color: red;
+    padding: 20px 40px;
+    font-size: inherit;
+}
+
+#overview.button-inside{
+    border-radius: 50%;
+    background-color: chartreuse;
+    height: 120px;
+    width: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#overview.button-inside .button {
+    border-radius: 50%; background-color: #1eff5b; height: 100px; width: 100px;
+}
