@@ -52,9 +52,17 @@
 <div>Amount:</div>
 <input type="number" id="changeValue" onchange="name=this.amount">
 
-    <!--<input type="button" value="add" onclick=myFunction()> -->
+<div class="round-button"><div class="round-button-circle"><a type="submit" onclick="increaseValue()" class="round-button">Increase</a></div></div>
+
+<div class="round-button-reduce"><div class="round-button-reduce-circle"><a type="submit" onclick="decreaseValue()" class="round-button-reduce">Reduce</a></div></div>
+
+
+  <!--<input type="button" value="add" onclick=myFunction()>
 <button  class="button btnAdd" type="submit" onclick="increaseValue()"> <b>Increase(+)</b> </button>
+</div>
+<div>
 <button class="button btnRemove" type="submit" onclick="decreaseValue()"> <b>reduce(-)</b> or <b>remove</b> </button>
+</div>-->
 
 </body>
 
