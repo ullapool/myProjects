@@ -8,10 +8,7 @@
      <script type="text/javascript">
 
          var amount = 1;
-         function myFunction() {
-             window.location.href="addRemove.php";
 
-         }
 
          function increaseValue(){
              amount = document.getElementById("changeValue").stepUp();
@@ -44,13 +41,17 @@
     -->
 
 </head>
+<a href="addRemove.php" class="previous round">&#8249;</a>
+<h1>  Increase or reduce/remove this product</h1>
+
 <body>
-<h1>Increase or reduce/remove this product</h1>
 
-<img src=" img/ravioli.jpeg" alt="placeholder" >
-
-<div>Amount:</div>
+<div class="image-counter">
+<img src=" img/ravioli.jpeg" alt="placeholder">
+<h3>Amount:</h3>
 <input type="number" id="changeValue" onchange="name=this.amount">
+</div>
+
 
 <div class="round-button"><div class="round-button-circle"><a type="submit" onclick="increaseValue()" class="round-button">Increase</a></div></div>
 
