@@ -1,0 +1,43 @@
+body {
+    background-color: #80ced6;
+    height: 100%;
+}
+
+h1{
+    padding: 10px;
+    text-align: center;
+    color: darkslategrey;
+    font-family:"Big Caslon";
+}
+
+.button-inside{
+    border-radius: 50%;
+    background-color: chartreuse;
+    height: 120px;
+    width: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button-inside .button {
+    border-radius: 50%; background-color: #1eff5b; height: 100px; width: 100px;
+}
+
+table{
+    margin-top:auto;
+    margin-left: auto;
+    margin-right:auto;
+    text-align:left;
+    border-collapse: collapse;
+    width: 80%;
+    height: 80%;
+    font-family: "Big Caslon";
+
+}
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
