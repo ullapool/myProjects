@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-
 <html>
-<head id="secondPage">
+
+<head>
     <title>"SmartFridge"</title>
-    <link rel="stylesheet" href="style.css"  type="text/css" media="screen" >
+    <link rel="stylesheet" href="add_remove.css" type="text/css" media="screen" >
 
      <script type="text/javascript">
 
@@ -24,27 +24,14 @@
          }
      </script>
 
-    <?php
-     /*  "version using php server sided"
-    session_start();
-    // Page was not reloaded via a button press
-    if (!isset($_POST['add'])) {
-        $_SESSION['attnum'] = 1; // Reset counter
-    }
-      */
-    ?>
-   <!--
-   <form method='post'>
-        <input name='add' type="submit" value='+'>
-        <h3><em>att <?php /* echo $_SESSION['attnum']++ */?>: </em></h3>
-    </form>
-    -->
+
 
 </head>
-<a href="addRemove.php" class="previous round">&#8249;</a>
-<h1>  Increase or reduce/remove this product</h1>
+
 
 <body>
+<a href="overview.php" class="previous round">&#8249;</a>
+<h1>  Increase or reduce/remove this product</h1>
 
 <div class="image-counter">
 <img src=" img/ravioli.jpeg" alt="placeholder">
@@ -58,14 +45,23 @@
 <div class="round-button-reduce"><div class="round-button-reduce-circle"><a type="submit" onclick="decreaseValue()" class="round-button-reduce">Reduce</a></div></div>
 
 
-  <!--<input type="button" value="add" onclick=myFunction()>
-<button  class="button btnAdd" type="submit" onclick="increaseValue()"> <b>Increase(+)</b> </button>
-</div>
-<div>
-<button class="button btnRemove" type="submit" onclick="decreaseValue()"> <b>reduce(-)</b> or <b>remove</b> </button>
-</div>-->
 
 </body>
 
 </html>
 
+    <?php
+    /*  "version using php server sided"
+   session_start();
+   // Page was not reloaded via a button press
+   if (!isset($_POST['add'])) {
+       $_SESSION['attnum'] = 1; // Reset counter
+   }
+     */
+    ?>
+    <!--
+   <form method='post'>
+        <input name='add' type="submit" value='+'>
+        <h3><em>att <?php /* echo $_SESSION['attnum']++ */?>: </em></h3>
+    </form>
+    -->

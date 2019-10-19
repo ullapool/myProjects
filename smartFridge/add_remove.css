@@ -8,9 +8,10 @@ h1{
     font-family:Verdana;
 }
 
+
 a {
-    text-decoration: none;
     display: inline-block;
+    text-decoration: none;
     margin-top: 10px;
     margin-left: 10px;
     padding: 16px 32px;
@@ -33,7 +34,6 @@ a:hover {
 
 div.image-counter{
     display: block;
-    position:relative;
     padding-top: 5em;
     margin-right: auto;
     margin-left: auto;
@@ -43,17 +43,21 @@ div.image-counter{
 
 input{
     display: block;
+    position:relative;
     margin-right: auto;
     margin-left: auto;
 }
 
 .round-button {
+    position:inherit;
+    display: block;
     width:15%;
     float: left;
     margin-left: 300px;
     margin-bottom: 100px;
 }
 .round-button-circle {
+
     width: 100%;
     height:0;
     padding-bottom: 100%;
@@ -69,7 +73,7 @@ input{
 }
 .round-button a {
     display:block;
-    position:relative;
+    position:inherit;
     float: left;
     margin-left: inherit;
     margin-bottom: inherit;
@@ -129,30 +133,3 @@ input{
     text-decoration:none;
 }
 
-#overview.button-inside{
-    border-radius: 50%;
-    background-color: chartreuse;
-    height: 120px;
-    width: 120px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-#overview.button-inside .button {
-    border-radius: 50%; background-color: #1eff5b; height: 100px; width: 100px;
-}
-
-
-
-table{
-    border-collapse: collapse;
-    width: 100%;
-
-}
-th, td {
-    text-align: left;
-    padding: 8px;
-}
-
-tr:nth-child(even) {background-color: #f2f2f2;}
