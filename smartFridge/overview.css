@@ -10,19 +10,7 @@ h1{
     font-family:"Big Caslon";
 }
 
-.button-inside{
-    border-radius: 50%;
-    background-color: chartreuse;
-    height: 120px;
-    width: 120px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 
-.button-inside .button {
-    border-radius: 50%; background-color: #1eff5b; height: 100px; width: 100px;
-}
 
 table{
     margin-top:auto;

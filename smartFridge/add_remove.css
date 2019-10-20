@@ -5,7 +5,10 @@ body {
 h1 {
     text-align: center;
     color: darkslategrey;
-    font-family: Verdana;
+    font-family: "Big Caslon";
+}
+h3{
+    font-family: "Big Caslon";
 }
 
 
@@ -51,7 +54,7 @@ a {
 }
 
 .image-counter img {
-    width: 100%;
+    width: 70%;
     height: 50%;
     object-fit: cover;
 }
@@ -90,11 +93,11 @@ a {
 }
 
 .green {
-    background-color: green;
+    background-color: chartreuse;
 }
 
 .red {
-    background-color: red;
+    background-color: salmon;
 }
 
 

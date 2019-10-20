@@ -6,43 +6,35 @@
     <link rel="stylesheet" href="add_remove.css" type="text/css" media="screen">
 
     <script type="text/javascript">
-        var amount = 1;
+        var amount = document.getElementById('amount');
 
         function increaseValue() {
-            document.getElementById("changeValue").stepUp();
-            amount++;
-
+            amount =document.getElementById('amount').stepUp();
         }
-
         function decreaseValue() {
-            if(amount > 0) {
-                amount = document.getElementById("changeValue").stepDown();
-                amount--;
-            }
-            else {
-                document.write("Amount can't be smaller than 0!");
-                amount = 0;
-            }
+            amount = document.getElementById('amount').stepDown();
         }
     </script>
 
 </head>
+
 <body>
 <a href="overview.php" class="previous round">&#8249;</a>
 <h1>Increase or reduce/remove this product</h1>
 <div class="image-counter">
-    <img src="http://lorempixel.com/400/200/" alt="placeholder">
+    <img src="img/ravioli.jpeg" alt="placeholder">
     <h3>Amount:</h3>
-    <input type="number" id="changeValue" onchange="name=this.amount">
+    <input type="number" id="amount" required min="0" max="100" step="1" value="0" >
+
     <div class="buttons">
         <div class="round-button-outer">
             <div class="round-button green">
-                <a type="submit" onclick="increaseValue()" class="round-button">Increase</a>
+                <a type="button"  onclick="increaseValue()" class="round-button">Increase</a>
             </div>
         </div>
         <div class="round-button-outer">
             <div class="round-button red">
-                <a type="submit" onclick="decreaseValue()" class="round-button">Reduce</a>
+                <a type="button" id="decrement" onclick="decreaseValue()" class="round-button">Reduce</a>
             </div>
         </div>
     </div>
