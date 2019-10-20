@@ -14,13 +14,16 @@
         function decreaseValue() {
             amount = document.getElementById('amount').stepDown();
         }
+
     </script>
 
 </head>
 
 <body>
-<a href="overview.php" class="previous round">&#8249;</a>
+<a href="index.php" class="previous round"> back</a>
+
 <h1>Increase or reduce/remove this product</h1>
+
 <div class="image-counter">
     <img src="img/ravioli.jpeg" alt="placeholder">
     <h3>Amount:</h3>
@@ -33,12 +36,20 @@
             </div>
         </div>
         <div class="round-button-outer">
+            <div class="round-button submit">
+                <a type="button" onclick="window.location.href='index.php' " class="round-button">Submit</a>
+            </div>
+        </div>
+        <div class="round-button-outer">
             <div class="round-button red">
                 <a type="button" id="decrement" onclick="decreaseValue()" class="round-button">Reduce</a>
             </div>
         </div>
+
     </div>
+
 </div>
+
 </body>
 </html>
 

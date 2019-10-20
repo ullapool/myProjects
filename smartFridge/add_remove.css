@@ -1,5 +1,9 @@
 body {
-    background-color: #80ced6;
+    background: radial-gradient(circle, #b3cca2 0.75em, rgba(255, 255, 255, 0) 0.75em, rgba(255, 255, 255, 0) 1.5em, rgba(204, 195, 148, 0.7) 1.5em, rgba(204, 195, 148, 0.7) 1.8em, rgba(255, 255, 255, 0) 1.8em) 0 0, radial-gradient(circle, #ccc394 0.75em, rgba(255, 255, 255, 0) 0.75em, rgba(255, 255, 255, 0) 1.5em, rgba(179, 204, 162, 0.7) 1.5em, rgba(179, 204, 162, 0.7) 1.8em, rgba(255, 255, 255, 0) 1.8em) 3em 3em, radial-gradient(circle, rgba(179, 204, 162, 0.7) 0.375em, rgba(255, 255, 255, 0) 0.375em) 3em 0, radial-gradient(circle, rgba(204, 195, 148, 0.7) 0.3em, rgba(255, 255, 255, 0) 0.3em) 0 3em;
+    background-size: 6em 6em;
+    background-color: #F2DBA5;
+    background-repeat: repeat;
+    font: 16px/2 'Trebuchet MS', Verdana, sans-serif;
 }
 
 h1 {
@@ -23,11 +27,11 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 3rem;
-    height: 3rem;
+    width: 4rem;
+    height: 4rem;
     background-color: #f1f1f1;
     color: black;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 2.0);
     transition: box-shadow 200ms ease;
 }
 
@@ -99,5 +103,11 @@ a {
 .red {
     background-color: salmon;
 }
+
+.submit {
+    background-color: dodgerblue;
+}
+
+
 
 
