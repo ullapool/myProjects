@@ -1,8 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css" type="text/css" media="screen" >
+    <?php
+    $mysqli = new mysqli("localhost", "admin", "hfict", "smartFridge", 3307);
 
+    $query = "SHOW TABLES";
+
+
+    ?>
 </head>
     <body>
     <h1><b>Current items-list</b></h1>
@@ -46,14 +53,9 @@
 
         </table>
     </form>
-    <?php
-    /**
-     * Created by PhpStorm.
-     * User: thomaslang
-     * Date: 27.09.19
-     * Time: 13:17
-     */
-    $conn = mysqli_connect('', 'admin', 'hfict', 'smartFridge','3307', '');
+
+    <!--
+    /**$conn = mysqli_connect('', 'admin', 'hfict', 'smartFridge','3307', '');
     if ($conn-> connect_error) {
         die("connection failed:". $conn-> connect_error);
     }
@@ -71,7 +73,7 @@
         echo "0 result";
     }
     $conn-> close();
-    ?>
+    ?>-->
 
 </body>
 </html>
