@@ -21,6 +21,7 @@
 </head>
 
 <body>
+
 <a href="index.php" class="previous round"> back</a>
 
 <h1>Increase or reduce/remove this product</h1>

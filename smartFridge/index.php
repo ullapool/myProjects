@@ -4,12 +4,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css" type="text/css" media="screen" >
     <?php
-    $mysqli = new mysqli("localhost", "admin", "hfict", "smartFridge", 3307);
 
-    $query = "SHOW TABLES";
+    $servername = "127.0.0.1";
+    $username = "root@localhost";
+    $password = "hfict";
+    $DbName = "smartFridge";
+    $portNum = "3307";
+
+    // Create connection
+    $conn = new mysqli($servername,$portNum, $DbName, $username, $password);
+
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+    echo "Connected successfully";
 
 
+    $sql = "SELECT id, Product_Name, Amount, Date_Added FROM products";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        echo "<table><tr><th>ID</th><th>Name</th></tr>";
+        // output data of each row
+        while($row = $result->fetch_assoc()) {
+            echo "<tr><td>".$row["id"]."</td><td>".$row["Product_Name"]." ".$row["Amount"]." ".$row["Date_Added"]."</td></tr>";
+        }
+        echo "</table>";
+    } else {
+        echo "0 results";
+    }
+    $conn->close();
     ?>
+
 </head>
     <body>
     <h1><b>Current items-list</b></h1>
@@ -53,27 +80,6 @@
 
         </table>
     </form>
-
-    <!--
-    /**$conn = mysqli_connect('', 'admin', 'hfict', 'smartFridge','3307', '');
-    if ($conn-> connect_error) {
-        die("connection failed:". $conn-> connect_error);
-    }
-    $sql = "SELECT id, Product_Name, Amount, Date_Added from smartFridge";
-    $result = $conn-> query($sql);
-
-    if($result-> num_rows > 0) {
-        while ($row = $result->fetch_assoc()) {
-            echo "<tr><td>" . $row["id"] . "</td><td></td>" . $row["Product_Name"] . "</td><td></td>" . $row["Amount"]
-                . "</td><td></td>" . $row["Date_Added"];
-        }
-        echo "</table>";
-    }
-    else{
-        echo "0 result";
-    }
-    $conn-> close();
-    ?>-->
 
 </body>
 </html>
