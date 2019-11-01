@@ -4,7 +4,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>"SmartFridge"</title>
-    <link rel="stylesheet" href="add_remove.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="../css/add_remove.css" type="text/css" media="screen">
 
     <script type="text/javascript">
         var amount = document.getElementById('amount');
@@ -27,7 +27,7 @@
 <h1>Increase or reduce/remove this product</h1>
 
 <div class="image-counter">
-    <img src="img/ravioli.jpeg" alt="placeholder">
+    <img src="../../input/ravioli.jpeg" alt="placeholder">
     <h3>Amount:</h3>
     <input type="number" id="amount" required min="0" max="100" step="1" value="0" >
 

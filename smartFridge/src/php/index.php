@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="index.css" type="text/css" media="screen" >
+    <link rel="stylesheet" href="../css/index.css" type="text/css" media="screen" >
     <?php
 
     $servername = "127.0.0.1";
