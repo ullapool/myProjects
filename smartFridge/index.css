@@ -10,9 +10,6 @@ h1{
     color: darkslategrey;
     font-family:"Big Caslon";
 }
-
-
-
 table{
     margin-top:auto;
     margin-left: auto;
@@ -24,9 +21,22 @@ table{
     font-family: "Big Caslon";
 
 }
+
 th, td {
     text-align: left;
     padding: 8px;
 }
-
 tr:nth-child(even) {background-color: #f2f2f2;}
+
+th {
+    background-color: #000000;
+    color: #FFFFFF;
+}
+
+@media (max-width: 800px){
+    table {
+        width: 800px;
+        height:auto;
+    }
+}
+

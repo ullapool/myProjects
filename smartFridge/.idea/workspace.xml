@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9164c781-2624-4d4f-8abf-f30a7f327f0e" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/input/cf.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/smartFridge.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/smartFridge.iml" afterDir="false" />
+    <list default="true" id="9164c781-2624-4d4f-8abf-f30a7f327f0e" name="Default" comment="changed image&#10;added title to head in add_remove.php">
+      <change afterPath="$PROJECT_DIR$/../ean/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ean/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/ravioli.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/php/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/php/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/cf.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/cf.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/add_remove.css" beforeDir="false" afterPath="$PROJECT_DIR$/add_remove.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/php/add_remove.php" beforeDir="false" afterPath="$PROJECT_DIR$/add_remove.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/php/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -71,6 +73,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src/php" />
       <recent name="$PROJECT_DIR$/src/css" />
       <recent name="$PROJECT_DIR$/src" />
@@ -129,7 +132,7 @@
       <workItem from="1572688965083" duration="168000" />
       <workItem from="1572689397223" duration="2995000" />
       <workItem from="1572697411063" duration="124000" />
-      <workItem from="1572889519572" duration="2124000" />
+      <workItem from="1572889519572" duration="5275000" />
     </task>
     <task id="LOCAL-00001" summary="redesign Buttons in main.php&#10;added edit and delete button in table&#10;design changes such as background and colors">
       <created>1571161012458</created>
@@ -187,7 +190,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572617676160</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="changed image&#10;added title to head in add_remove.php">
+      <created>1572901352727</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1572901352727</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -215,6 +225,7 @@
     <MESSAGE value="renamed .php and .css files to index" />
     <MESSAGE value="created submit button&#10;changed back button name&#10;small adjustments" />
     <MESSAGE value="created structure (folder)" />
-    <option name="LAST_COMMIT_MESSAGE" value="created structure (folder)" />
+    <MESSAGE value="changed image&#10;added title to head in add_remove.php" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed image&#10;added title to head in add_remove.php" />
   </component>
 </project>
