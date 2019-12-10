@@ -3,17 +3,22 @@ require_once "Database.php";
 $database = new Database();
 $con = $database->GetDatabaseInstance();
 //echo only for testing
-echo("Scan your Barcode\n");
+//echo("Scan your Barcode\n");
+//$trigger = 1;
 //get Barcode from remote local machine
-$ean = $_REQUEST['ean'];
 
-$query = "SELECT * FROM products WHERER Ean = $ean";
-$result = $con->query($query);
+$ean = $_REQUEST['ean'];
+//$response["x"]= "Hey";
+//json_encode($response);
+
+
+//$query = "SELECT * FROM products WHERER EAN = $ean";
+/*$result = $con->query($query);
 if($result) {
     if(mysqli_num_rows($result)) {
         header('Location: add_remove.php');
     }
-} else {
+} else { */
 
 //connection token for remote db
     $token = 'hfict17';
@@ -31,12 +36,12 @@ if($result) {
 
         //echo ("EAN $ean => $productName \n");
 
-        $sql = "insert into products (Ean, Name, Amount) values(?,?,?)";
+        $sql = "insert into products (EAN, Name, Amount) values(?,?,?)";
         $stmt = $con->prepare($sql);
         $stmt->bind_param('isi', $ean, $productName, $amount);
         echo $stmt->execute();
 
-    }
+
 }
 ?>
 

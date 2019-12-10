@@ -1,100 +1,89 @@
 <?php
+$database = new Database();
+if ($_GET['m'] == 1)
+{
+    echo "Test ist Test 11";
+}
+elseif ($_GET['m'] == 2){
+    echo json_encode($database->GetAllProducts());
+}
+elseif ($_GET['m'] == 3){
+    $database->RemoveProduct($_GET['ean']);
+    echo json_encode($database->GetAllProducts());
+}
+elseif ($_GET['m'] == 4)
+{
+    echo json_encode($database->GetSelectedProduct($_GET['ean']));
+}
+elseif ($_GET['m'] == 5)
+{
+    $database->IncreaseAmount($_GET['ean']);
+    echo json_encode($database->GetSelectedProduct($_GET['ean']));
+}
+elseif ($_GET['m'] == 6)
+{
+    $database->ReduceAmount($_GET['ean']);
+    echo json_encode($database->GetSelectedProduct($_GET['ean']));
+}
+
 
 class Database
 {
+
     private static $connectionInstance;
+
     function __construct()
     {
         if (static::$connectionInstance === null) {
-            static::$connectionInstance = new mysqli("127.0.0.1", "root","hfict","smartFridge");
+            static::$connectionInstance = new mysqli("127.0.0.1", "admin", "hfict", "smartFridge");
         }
         return static::$connectionInstance;
     }
+
     public function GetDatabaseInstance()
     {
         return static::$connectionInstance;
     }
-    public function CloseDatabaseConnection($connection){
-        $connection->close();
-        static::$connectionInstance = null;
-    }
+
     public function GetAllProducts()
     {
         $connection = Database::GetDatabaseInstance();
-        $sql = "SELECT Ean, Name, Amount, Date FROM products WHERE Amount > 0";
-        $products = $connection->query($sql);
-        return $products;
+        $result = mysqli_query($connection, "SELECT * FROM products WHERE Amount > 0");
+        $data = array();
+        while ($row = mysqli_fetch_assoc($result)) {
+            $data[] = $row;
+        }
+
+        return $data;
     }
 
     public function GetSelectedProduct($EAN)
     {
         $connection = Database::GetDatabaseInstance();
-        //$result = mysqli_query($connection, "SELECT * FROM products WHERE Ean = $EAN");
-        //$row = mysqli_fetch_row($result);
-        //return $row;
-        $sql = "SELECT Amount FROM products WHERE Ean = $EAN";
-        $result = $connection->query($sql);
-        //$result->bind_param("s",$EAN);
-        if($result->num_row >=0) {
-            while($row = mysqli_fetch_assoc($result)) {
-                return $row['Amount'];
-            }
-            } else {
-            return null;
+        $result = mysqli_query($connection, "SELECT * FROM products WHERE EAN = $EAN");
+        $data = array();
+        while ($row = mysqli_fetch_assoc($result)) {
+            $data[] = $row;
         }
-        //$row = mysqli_fetch_assoc(mysqli_query($connection, $sql));
-       // $amount = $row['Amount'];
-        //$row = mysqli_result(mysqli_query($connection, $sql));
-
-
-
-        /*$connection = Database::GetDatabaseInstance();
-        $sql = "SELECT * FROM products WHERE Ean = ?";
-        $stmt = $connection->prepare($sql);
-        $stmt->bind_param("s",$EAN);
-        $stmt->execute();
-        return $stmt->get_result();*/
-
+        return $data;
     }
-    public function AddProduct($EAN,$Name,$Amount,$Date){
-        $connection = Database::GetDatabaseInstance();
-        $sql = "INSERT INTO Product(Ean, Name, Amount, Date) VALUES(?,?,?,?)";
-        $stmt= $connection->prepare($sql);
-        $stmt->bind_param("ssis", $EAN, $Name, $Amount,$Date);
-        return $stmt->execute();
-    }
-
     public function RemoveProduct($EAN)
     {
         $connection = Database::GetDatabaseInstance();
-        $stmt = $connection->prepare("UPDATE products SET Amount = 0 WHERE Ean = ?");
+        $stmt = $connection->prepare("UPDATE products SET Amount = 0 WHERE EAN = ?");
         $stmt->bind_param("s", $EAN);
         return $stmt->execute();
-
     }
+
     public function IncreaseAmount($EAN)
     {
         $connection = Database::GetDatabaseInstance();
-        $stmt = "UPDATE products SET Amount = Amount + 1 WHERE Ean = ?";
-        $stmt = $connection->prepare($stmt);
-        $stmt->bind_param("s", $EAN);
-        return $stmt->execute();
-        //$stmt->execute();
-        /*if(mysqli_query($connection, $sql)) {
-
-            header('Location: add_remove.php');
-        } else {
-            echo "Error";
-        }*/
+        mysqli_query($connection, "UPDATE products SET Amount = Amount + 1 WHERE EAN = $EAN");
     }
 
-    public function DecreaseAmount($EAN)
+    public function ReduceAmount($EAN)
     {
         $connection = Database::GetDatabaseInstance();
-        //$product = $this->GetSelectedProduct($EAN);
-        $stmt ="UPDATE products SET Amount = Amount - 1 WHERE Ean = ?";
-        $stmt = $connection->prepare($stmt);
-        $stmt->bind_param("s",$EAN);
-        return $stmt->execute();
+        mysqli_query($connection, "UPDATE products SET Amount = Amount - 1 WHERE EAN = $EAN");
     }
 }
